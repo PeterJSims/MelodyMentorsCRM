@@ -1,6 +1,6 @@
 -- noinspection SqlNoDataSourceInspectionForFile
 
-create table if not exists Student(
+create table if not exists student(
     id  int  NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(25),
     last_name VARCHAR(25),

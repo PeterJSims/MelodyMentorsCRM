@@ -2,11 +2,12 @@ package com.mm.melodymentorscrm.controller;
 
 import com.mm.melodymentorscrm.entity.Student;
 import com.mm.melodymentorscrm.service.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -45,14 +46,14 @@ public class StudentController {
         List<Student> studentList = studentService.findAll();
 
         LocalDate currentDate = LocalDate.now();
-        Year currentYear = Year.of(currentDate.getYear());
-        model.addAttribute("currentYear", currentYear.getValue());
+        int currentYear = Year.now().getValue();
+        model.addAttribute("currentYear", currentYear);
 
-        List<Student> students3to5 = studentService.filterStudentsByYearRange(studentList, currentYear.minusYears(3), currentYear.minusYears(5));
-        List<Student> students6to9 = studentService.filterStudentsByYearRange(studentList, currentYear.minusYears(6), currentYear.minusYears(9));
-        List<Student> students10to14 = studentService.filterStudentsByYearRange(studentList, currentYear.minusYears(10), currentYear.minusYears(14));
-        List<Student> students15to19 = studentService.filterStudentsByYearRange(studentList, currentYear.minusYears(15), currentYear.minusYears(19));
-        List<Student> studentsAdult = studentService.filterStudentsByYearRange(studentList, currentYear.minusYears(20), currentYear.minusYears(120));
+        List<Student> students3to5 = studentService.filterStudentsByYearRange(studentList, currentYear - 3, currentYear - 5);
+        List<Student> students6to9 = studentService.filterStudentsByYearRange(studentList, currentYear - 6, currentYear - 9);
+        List<Student> students10to14 = studentService.filterStudentsByYearRange(studentList, currentYear - 10, currentYear - 14);
+        List<Student> students15to19 = studentService.filterStudentsByYearRange(studentList, currentYear - 15, currentYear - 19);
+        List<Student> studentsAdult = studentService.filterStudentsByYearRange(studentList, currentYear - 20, currentYear - 300);
 
 
         model.addAttribute("students3to5", students3to5);
@@ -104,5 +105,35 @@ public class StudentController {
 
         model.addAttribute("filteredStudents", studentList);
         return "anniversaries";
+    }
+
+    @GetMapping("/showFormForAdd")
+    public String showFormForAddStudent(Model model) {
+        Student student = new Student();
+        student.setBirthYear(2000); // avoids the default of 0
+        model.addAttribute("student", student);
+        return "student-form";
+    }
+
+    @GetMapping("/showFormForUpdate")
+    public String showFormForUpdateStudent(@RequestParam("studentId") int id, Model model) {
+        Student student = studentService.findById(id);
+
+        model.addAttribute("student", student);
+        return "student-form";
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("studentId") int id) {
+        studentService.deleteById(id);
+        return "redirect:/home";
+    }
+
+    @PostMapping("/save")
+    public String saveStudent(@Valid @ModelAttribute("student") Student student, Errors errors) {
+        if (errors.hasErrors()) return "student-form";
+
+        studentService.save(student);
+        return "redirect:/home";
     }
 }

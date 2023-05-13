@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Melody Mentors</title>
+    <link rel="stylesheet"
+          th:href="@{/css/bootstrap.min.css}"/>
+
+</head>
+<title>Melody Makers</title>
+
+<body style="background-color: whitesmoke">
+<div class="container mt-5">
+    <p class="h4 mb-4">Save Student</p>
+
+    <form action="#" th:action="@{/save}" th:object="${student}" method="POST">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group row align-content-start">
+            <label for="firstName">First Name: </label>
+            <input type="text" th:field="*{firstName}" class="form-control mb-4 w-25" placeholder="First Name">
+            <span class="alert-danger mb-4"
+                  th:if="${#fields.hasErrors('firstName')}"
+                  th:errors="*{firstName}">Name Error</span>
+        </div>
+        <div class="form-group row align-content-start">
+            <label for="lastName">Last name: </label>
+            <input type="text" th:field="*{lastName}" class="form-control mb-4 w-25" placeholder="Last Name">
+            <span class="alert-danger mb-4"
+                  th:if="${#fields.hasErrors('lastName')}"
+                  th:errors="*{lastName}">Name Error</span>
+        </div>
+        <div class="form-group row align-content-start">
+            <label for="emailAddress">Email Address: </label>
+            <input type="text" th:field="*{emailAddress}" class="form-control mb-4 w-25" placeholder="Email">
+            <span class="alert-danger mb-4"
+                  th:if="${#fields.hasErrors('emailAddress')}"
+                  th:errors="*{emailAddress}">Email Address Error</span>
+        </div>
+        <div class="form-group row align-content-start">
+            <label for="phoneNumber">Phone Number: </label>
+            <input type="text" th:field="*{phoneNumber}" class="form-control mb-4 w-25" placeholder="Phone Number">
+            <span class="alert-danger mb-4"
+                  th:if="${#fields.hasErrors('phoneNumber')}"
+                  th:errors="*{phoneNumber}">Phone Number Error</span>
+        </div>
+        <div class="form-group row align-content-start">
+            <label for="streetAddress">Street Address: </label>
+            <input type="text" th:field="*{streetAddress}" class="form-control mb-4 w-25" placeholder="Street Address">
+            <span class="alert-danger mb-4"
+                  th:if="${#fields.hasErrors('streetAddress')}"
+                  th:errors="*{streetAddress}">Street Address Error</span>
+        </div>
+        <div class="form-group row align-content-start">
+            <label for="zip">Zip Code: </label>
+            <input type="text" th:field="*{zip}" class="form-control mb-4 w-25" placeholder="Zipcode">
+            <span class="alert-danger mb-4"
+                  th:if="${#fields.hasErrors('zip')}"
+                  th:errors="*{streetAddress}">Zip Code Error</span>
+        </div>
+        <div class="form-group row align-content-start">
+            <label for="teacherName">Teacher Name: </label>
+            <input type="text" th:field="*{teacherName}" class="form-control mb-4 w-25" placeholder="Teacher Name">
+            <span class="alert-danger mb-4"
+                  th:if="${#fields.hasErrors('teacherName')}"
+                  th:errors="*{teacherName}">Teacher Name Error</span>
+        </div>
+        <div class="form-group row align-content-start">
+            <label for="instrument">Instrument: </label>
+            <input type="text" th:field="*{instrument}" class="form-control mb-4 w-25" placeholder="Instrument">
+            <span class="alert-danger mb-4"
+                  th:if="${#fields.hasErrors('instrument')}"
+                  th:errors="*{instrument}">Instrument Name Error</span>
+        </div>
+        <div class="form-group row align-content-start">
+            <label for="startDate">Start Date: </label>
+            <input type="date" th:field="*{startDate}" class="form-control mb-4 w-25" placeholder="Start Date">
+            <span class="alert-danger mb-4"
+                  th:if="${#fields.hasErrors('startDate')}"
+                  th:errors="*{startDate}">Start Date Error</span>
+        </div>
+        <div class="form-group row align-content-start">
+            <label for="birthYear">Birth Year: </label>
+            <input type="text" th:field="*{birthYear}" class="form-control mb-4 w-25" placeholder="Birth Year">
+            <span class="alert-danger mb-4"
+                  th:if="${#fields.hasErrors('birthYear')}"
+                  th:errors="*{birthYear}">Birth Year Error</span>
+        </div>
+        <button type="submit" class="btn btn-info col-2">Save</button>
+    </form>
+    <hr>
+    <a th:href="@{/home}">Return Home</a>
+</div>
+
+</body>
+</html>

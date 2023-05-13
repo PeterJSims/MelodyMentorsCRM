@@ -30,11 +30,17 @@
 
 <div class="container mt-5">
     <h2>Student List</h2>
-    <form th:action="@{/search}" method="get">
-        <input type="text" name="keyword" th:value="${keyword}" placeholder="Search by Student Last Name" size="50">
-        <button type="submit" class="btn btn-info">Search</button>
-        <button type="submit" class="btn btn-info">Reset</button>
-    </form>
+    <div class="d-flex align-items-center justify-content-between">
+        <form th:action="@{/search}" method="get">
+            <input type="text" name="keyword" th:value="${keyword}" placeholder="Search by Student Last Name" size="50">
+            <button type="submit" class="btn btn-info">Search</button>
+            <button type="submit" class="btn btn-info">Reset</button>
+        </form>
+        <div class="ml-auto">
+            <a th:href="@{/showFormForAdd}"
+               class="btn btn-primary btn-sm mb-1">Add Student</a>
+        </div>
+    </div>
     <table class="table table-bordered table-striped">
         <thead class="table-primary">
         <tr>
@@ -43,6 +49,9 @@
             <th>Instrument</th>
             <th>Start Date</th>
             <th>Teacher Name</th>
+            <th>Birth Year</th>
+            <th>Zp Code</th>
+            <th>Update/Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -54,6 +63,14 @@
             <td th:text="${student.instrument}"/>
             <td th:text="${#dates.format(student.startDate, 'MM-dd-yyyy')}"/>
             <td th:text="${student.teacherName}"/>
+            <td th:text="${student.birthYear}"/>
+            <td th:text="${student.zip}"/>
+            <td>
+                <a th:href="@{/showFormForUpdate(studentId=${student.id})}" class="btn btn-info btn-sm">Update</a>
+                <a th:href="@{/delete(studentId=${student.id})}" class="btn btn-danger btn-sm "
+                   onclick="if (!(confirm('Confirm deletion of this student?'))) return false"
+                >Delete</a>
+            </td>
         </tr>
         </tbody>
     </table>

@@ -3,15 +3,15 @@ package com.mm.melodymentorscrm.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.Constraint;
+import jakarta.validation.constraints.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.Year;
 import java.util.Date;
 
 @Entity
-@Table(name = "Student")
+@Table(name = "student")
 public class Student extends Person {
 
     @NotBlank(message = "Street Address is required")
@@ -35,20 +35,21 @@ public class Student extends Person {
     private String teacherName;
 
     @NotNull(message = "Birth year is required")
-    @Size(max = 4, message = "Year cannot exceed four digits")
+    @Min(1900)
+    @Max(2500)
     @Column(name = "birth_year")
-    private Year birthYear;
+    private int birthYear;
 
     @NotNull(message = "Start date is required")
-    @NotBlank
     @Column(name = "start_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date startDate;
 
 
     public Student() {
     }
 
-    public Student(String firstName, String lastName, String email, String phone, String streetAddress, String zip, String instrument, String teacherName, Year birthYear, Date startDate) {
+    public Student(String firstName, String lastName, String email, String phone, String streetAddress, String zip, String instrument, String teacherName, int birthYear, Date startDate) {
         super(firstName, lastName, email, phone);
         this.streetAddress = streetAddress;
         this.zip = zip;
@@ -91,11 +92,11 @@ public class Student extends Person {
         this.teacherName = teacherName;
     }
 
-    public Year getBirthYear() {
+    public int getBirthYear() {
         return birthYear;
     }
 
-    public void setBirthYear(Year birthYear) {
+    public void setBirthYear(int birthYear) {
         this.birthYear = birthYear;
     }
 

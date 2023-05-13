@@ -10,6 +10,7 @@ import java.time.Year;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -27,14 +28,28 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> filterStudentsByYearRange(List<Student> studentList, Year start, Year end) {
+    public Student findById(int id) {
+        Optional<Student> result = studentRepository.findById(id);
+
+        Student student = null;
+
+        if (result.isPresent()) {
+            student = result.get();
+        } else {
+            throw new RuntimeException("Did not find student with id - " + id);
+        }
+        return student;
+    }
+
+    @Override
+    public List<Student> filterStudentsByYearRange(List<Student> studentList, int start, int end) {
         studentList = studentList.stream().filter(
                 student -> {
-                    Year birthYear = student.getBirthYear();
-                    if (birthYear.equals(start) || birthYear.equals(end)) {
+                    int birthYear = student.getBirthYear();
+                    if (birthYear == start || birthYear == end) {
                         return true;
                     } else {
-                        return (birthYear.isBefore(start) && birthYear.isAfter(end));
+                        return (birthYear < (start) && birthYear > (end));
                     }
                 }).toList();
         return studentList;
