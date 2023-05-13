@@ -26,22 +26,22 @@ public class Student extends Person {
 
     @NotBlank(message = "Instrument type is required")
     @Size(max = 15, message = "Instrument type has exceeded the limit")
-    @Column(name="instrument")
+    @Column(name = "instrument")
     private String instrument;
 
     @NotBlank(message = "Teacher name is required")
     @Size(max = 25, message = "Teacher name has exceeded the limit")
-    @Column(name="teacher_name")
+    @Column(name = "teacher_name")
     private String teacherName;
 
     @NotNull(message = "Birth year is required")
     @Size(max = 4, message = "Year cannot exceed four digits")
-    @Column(name="birth_year")
+    @Column(name = "birth_year")
     private Year birthYear;
 
     @NotNull(message = "Start date is required")
     @NotBlank
-    @Column(name="start_date")
+    @Column(name = "start_date")
     private Date startDate;
 
 

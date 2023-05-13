@@ -28,6 +28,10 @@
     </div>
 </nav>
 
+<div class="text-center" style="margin-top: 5px">
+    <h3>Students with lesson start anniversaries this month</h3>
+</div>
+
 <div class="container mt-5">
     <h2>Student List</h2>
     <table class="table table-bordered table-striped">
@@ -42,7 +46,7 @@
         </thead>
         <tbody>
 
-        <tr th:each="student : ${students}">
+        <tr th:each="student : ${filteredStudents}">
 
             <td th:text="${student.firstName}"/>
             <td th:text="${student.lastName}"/>

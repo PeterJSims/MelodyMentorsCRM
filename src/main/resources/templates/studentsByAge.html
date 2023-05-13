@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Melody Mentors</title>
+    <link rel="stylesheet"
+          th:href="@{/css/bootstrap.min.css}"/>
+
+</head>
+<title>Melody Makers</title>
+
+<body style="background-color: whitesmoke">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" th:href="@{home}">Melody Mentors</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#" th:href="@{anniversaries}">This Month's Anniversaries</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" th:href="@{studentsByAge}">Students By Age</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" th:href="@{studentsByInstrument}">Students by Instrument</a>
+            </li>
+        </ul>
+    </div>
+    </div>
+</nav>
+
+<div class="text-center" style="margin-top: 5px">
+    <h3 th:text="'Students grouped by their ages as of ' +  ${currentYear}"></h3>
+</div>
+
+<div class="container mt-5">
+    <h2>Ages 3-5</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-primary">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Instrument</th>
+            <th>Start Date</th>
+            <th>Birth Year</th>
+            <th>Parent's Email Address</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="student : ${students3to5}">
+
+            <td th:text="${student.firstName}"/>
+            <td th:text="${student.lastName}"/>
+            <td th:text="${student.instrument}"/>
+            <td th:text="${#dates.format(student.startDate, 'MM-dd-yyyy')}"/>
+            <td th:text="${student.birthYear}"/>
+            <td th:text="${student.emailAddress}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<hr>
+<div class="container mt-5">
+    <h2>Ages 6-9</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-primary">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Instrument</th>
+            <th>Start Date</th>
+            <th>Birth Year</th>
+            <th>Parent's Email Address</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="student : ${students6to9}">
+
+            <td th:text="${student.firstName}"/>
+            <td th:text="${student.lastName}"/>
+            <td th:text="${student.instrument}"/>
+            <td th:text="${#dates.format(student.startDate, 'MM-dd-yyyy')}"/>
+            <td th:text="${student.birthYear}"/>
+            <td th:text="${student.emailAddress}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<hr>
+<div class="container mt-5">
+    <h2>Ages 10-14</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-primary">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Instrument</th>
+            <th>Start Date</th>
+            <th>Birth Year</th>
+            <th>Parent's Email Address</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="student : ${students10to14}">
+
+            <td th:text="${student.firstName}"/>
+            <td th:text="${student.lastName}"/>
+            <td th:text="${student.instrument}"/>
+            <td th:text="${#dates.format(student.startDate, 'MM-dd-yyyy')}"/>
+            <td th:text="${student.birthYear}"/>
+            <td th:text="${student.emailAddress}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<hr>
+<div class="container mt-5">
+    <h2>Ages 15-19</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-primary">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Instrument</th>
+            <th>Start Date</th>
+            <th>Birth Year</th>
+            <th>Email Address</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="student : ${students15to19}">
+
+            <td th:text="${student.firstName}"/>
+            <td th:text="${student.lastName}"/>
+            <td th:text="${student.instrument}"/>
+            <td th:text="${#dates.format(student.startDate, 'MM-dd-yyyy')}"/>
+            <td th:text="${student.birthYear}"/>
+            <td th:text="${student.emailAddress}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<hr>
+<div class="container mt-5">
+    <h2>Adult Students</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-primary">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Instrument</th>
+            <th>Start Date</th>
+            <th>Birth Year</th>
+            <th>Email Address</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="student : ${studentsAdult}">
+
+            <td th:text="${student.firstName}"/>
+            <td th:text="${student.lastName}"/>
+            <td th:text="${student.instrument}"/>
+            <td th:text="${#dates.format(student.startDate, 'MM-dd-yyyy')}"/>
+            <td th:text="${student.birthYear}"/>
+            <td th:text="${student.emailAddress}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

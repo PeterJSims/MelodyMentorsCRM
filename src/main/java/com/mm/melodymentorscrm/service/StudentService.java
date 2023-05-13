@@ -12,8 +12,10 @@ public interface StudentService {
 
     void deleteById(int id);
 
-    List<Student> getStudentsWithinYearRange(Year start, Year end);
+    List<Student> filterStudentsByYearRange(List<Student> students, Year start, Year end);
 
-    List<Student> findByInstrument(String instrument);
+    List<Student> filterStudentsByCurrentMonth(List<Student> studentList);
+
+    List<Student> filterStudentsByInstrumentContaining(List<Student> studentList, String instrument);
 
 }

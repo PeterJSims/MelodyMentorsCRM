@@ -1,6 +1,6 @@
 INSERT INTO Student (first_name, last_name, instrument, start_date, birth_year, street_address, zip, phone_number,
                      email_address, teacher_name)
-VALUES ('John', 'Smith', 'Saxophone', '2019-01-01', 2011, '123 Main St', '23222', '555-555-1212', 'richard.smith@example.com',
+VALUES ('John', 'Smith', 'Saxophone', '2019-05-01', 2011, '123 Main St', '23222', '555-555-1212', 'richard.smith@example.com',
         'John McCloud'),
        ('Sarah', 'Johnson', 'Piano', '2020-02-14', 2010, '456 Maple Ave', '23221', '555-555-1313',
         'michelle.johnson@example.com', 'John McCloud'),
@@ -8,7 +8,7 @@ VALUES ('John', 'Smith', 'Saxophone', '2019-01-01', 2011, '123 Main St', '23222'
         'michael.williams@example.com', 'Brian Stig'),
        ('Emily', 'Brown', 'Voice', '2021-03-22', 2010, '321 Elm St', '23114', '555-555-1515',
         'sally.brown@example.com', 'Tonya Scott'),
-       ('Daniel', 'Garcia', 'Bass', '2018-11-11', 2015, '654 Pine St', '23114', '555-555-1616',
+       ('Daniel', 'Garcia', 'Bass', '2018-05-11', 2015, '654 Pine St', '23114', '555-555-1616',
         'daniel.garcia@example.com', 'Pete James'),
        ('Avery', 'Davis', 'Guitar', '2022-04-30', 2008, '987 Birch St', '23113', '555-555-1717',
         'avery.davis@example.com', 'Hugo Garcia'),
@@ -19,4 +19,6 @@ VALUES ('John', 'Smith', 'Saxophone', '2019-01-01', 2011, '123 Main St', '23222'
        ('Ethan', 'Anderson', 'Cello', '2018-02-28', 2015, '864 Oak Ave', '23237', '555-555-2020',
         'rachel.anderson@example.com', 'Tracey Billings'),
        ('Sophia', 'Wilson', 'Guitar', '2020-12-15', 2007, '579 Maple Rd', '23231', '555-555-2121',
-        'samantha.wilson@example.com', 'Hugo Garcia');
+        'samantha.wilson@example.com', 'Hugo Garcia'),
+       ('Dougie', 'Wilson', 'Piano', '2022-12-19', 2018, '579 Maple Rd', '23231', '555-555-2121',
+        'samantha.wilson@example.com', 'John McCloud');

@@ -8,11 +8,6 @@ import java.util.Date;
 import java.util.List;
 
 public interface StudentRepository extends JpaRepository<Student, Integer> {
-
-    public List<Student> findAllByStartDateContains(String date);
-
-    public List<Student> findAllByBirthYearBetween(Year start, Year end);
-
     public List<Student> findAllByInstrumentContainingIgnoreCase(String instrument);
 
 }
