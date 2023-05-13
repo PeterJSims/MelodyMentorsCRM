@@ -1,4 +1,4 @@
-package com.mm.melodymentorscrm.entity.repository;
+package com.mm.melodymentorscrm.repository;
 
 import com.mm.melodymentorscrm.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
