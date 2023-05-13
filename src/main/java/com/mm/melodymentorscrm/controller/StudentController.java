@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Year;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -33,6 +35,9 @@ public class StudentController {
 
     @GetMapping("/studentsByAge")
     public String listStudentsByAge(Model model) {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        model.addAttribute("currentDateTime", currentDateTime.format(DateTimeFormatter.ofPattern("MM-dd-yyyy hh:mm:ss")));
+
         List<Student> studentList = studentService.findAll();
 
         LocalDate currentDate = LocalDate.now();
@@ -56,6 +61,13 @@ public class StudentController {
 
     @GetMapping("/studentsByInstrument")
     public String listStudentsByInstrument(Model model) {
+
+        LocalDateTime currentDate = LocalDateTime.now();
+        model.addAttribute("currentDate", currentDate.format(DateTimeFormatter.ofPattern("MM-dd-yyyy hh:mm")));
+
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        model.addAttribute("currentDateTime", currentDateTime.format(DateTimeFormatter.ofPattern("MM-dd-yyyy hh:mm:ss")));
+
         List<Student> studentList = studentService.findAll();
 
         List<Student> studentsGuitar = studentService.filterStudentsByInstrumentContaining(studentList, "guitar");
@@ -80,6 +92,9 @@ public class StudentController {
 
     @GetMapping("/anniversaries")
     public String listStudentsByCurrentAnniversary(Model model) {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        model.addAttribute("currentDateTime", currentDateTime.format(DateTimeFormatter.ofPattern("MM-dd-yyyy hh:mm:ss")));
+
         List<Student> studentList = studentService.findAll();
         studentList = studentService.filterStudentsByCurrentMonth(studentList);
 
