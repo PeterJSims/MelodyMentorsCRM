@@ -5,7 +5,7 @@ create table if not exists Student(
     first_name VARCHAR(25),
     last_name VARCHAR(25),
     instrument VARCHAR(25),
-    customer_since DATE,
+    start_date DATE,
     birth_year YEAR,
     street_address VARCHAR(60),
     zip VARCHAR(5),
