@@ -24,10 +24,14 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping(value = {"/", "/home"})
-    public String listStudents(Model model) {
-        List<Student> studentList = studentService.findAll();
-
+    @GetMapping(value = {"/", "/home", "/search"})
+    public String listStudents(Model model, String keyword) {
+        List<Student> studentList;
+        if (keyword != null) {
+            studentList = studentService.searchAllStudentsByLastName(keyword);
+        } else {
+            studentList = studentService.findAll();
+        }
         model.addAttribute("students", studentList);
         return "home";
     }

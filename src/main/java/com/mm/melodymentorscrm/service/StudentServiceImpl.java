@@ -74,4 +74,9 @@ public class StudentServiceImpl implements StudentService {
     public void deleteById(int id) {
         studentRepository.deleteById(id);
     }
+
+    @Override
+    public List<Student> searchAllStudentsByLastName(String lastName) {
+        return studentRepository.findAllByLastNameStartingWithIgnoreCase(lastName);
+    }
 }

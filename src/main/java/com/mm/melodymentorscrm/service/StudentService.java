@@ -12,6 +12,8 @@ public interface StudentService {
 
     void deleteById(int id);
 
+    List<Student> searchAllStudentsByLastName(String lastName);
+
     List<Student> filterStudentsByYearRange(List<Student> students, Year start, Year end);
 
     List<Student> filterStudentsByCurrentMonth(List<Student> studentList);
