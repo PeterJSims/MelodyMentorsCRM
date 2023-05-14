@@ -3,18 +3,12 @@ package com.mm.melodymentorscrm.controller;
 import com.mm.melodymentorscrm.entity.Student;
 import com.mm.melodymentorscrm.repository.StudentRepository;
 import com.mm.melodymentorscrm.service.StudentServiceImpl;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.ModelAndViewAssert;
@@ -26,7 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.Date;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -39,12 +32,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class StudentControllerTest {
 
     private static MockHttpServletRequest request;
-
-    @Autowired
-    private JdbcTemplate jdbc;
-
-    @PersistenceContext
-    private EntityManager entityManager;
 
     @Autowired
     private StudentRepository studentRepository;
