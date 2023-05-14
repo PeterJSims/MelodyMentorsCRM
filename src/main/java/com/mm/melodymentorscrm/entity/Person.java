@@ -23,7 +23,7 @@ public class Person {
     private String lastName;
 
     @NotBlank(message = "Email address is required")
-    @Size(max = 25, message = "Email field has exceeded the limit")
+    @Size(max = 60, message = "Email field has exceeded the limit")
     @Column(name="email_address")
     private String emailAddress;
 

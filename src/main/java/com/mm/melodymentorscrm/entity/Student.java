@@ -3,11 +3,9 @@ package com.mm.melodymentorscrm.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import jakarta.validation.Constraint;
 import jakarta.validation.constraints.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.Year;
 import java.util.Date;
 
 @Entity
