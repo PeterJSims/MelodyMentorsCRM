@@ -107,10 +107,4 @@ public class Student extends Person {
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
-
-
-    @Override
-    public String toString() {
-        return "Name: " + super.getFirstName() + " " + super.getLastName() + ", Instrument: " + getInstrument() + ", Teacher: " + getTeacherName() + ", Student since: " + getStartDate().toString();
-    }
 }
