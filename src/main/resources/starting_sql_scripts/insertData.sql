@@ -1,4 +1,4 @@
-INSERT INTO Student (first_name, last_name, instrument, start_date, birth_year, street_address, zip, phone_number,
+INSERT INTO student (first_name, last_name, instrument, start_date, birth_year, street_address, zip, phone_number,
                      email_address, teacher_name)
 VALUES ('John', 'Smith', 'Saxophone', '2019-05-01', 2011, '123 Main St', '23222', '555-555-1212', 'richard.smith@example.com',
         'John McCloud'),
